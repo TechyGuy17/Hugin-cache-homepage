@@ -7,7 +7,7 @@
     </head>
     <body>
         <script>
-            fetch('https://cache.novastack.org/api/v1/posts?size=100')
+            fetch('{{ index_file_url }}/api/v1/posts?size=100')
             .then((response) => {
               return response.json()
             })
@@ -31,7 +31,7 @@
             
             </script>
         <h2 style="text-align: center;">Last 100 messages:</h2>
-        <h5 style="text-align: center;">Want more? Use the api instead! https://cache.novastack.org/api/v1/posts</h5>
+        <h5 style="text-align: center;">Want more? Use the api instead! {{ index_file_url }}/api/v1/posts</h5>
         <div class="container">
         <table class="table">
           <thead>
