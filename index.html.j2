@@ -12,6 +12,10 @@
             return response.json()
         })
         .then((json) => {
+             let username = item.nickname
+                if (username == null) {
+                  nickname = "Anonymous"
+                }
             var temp = "";
             json.items.forEach(item => {
                 temp += "<tr>";
