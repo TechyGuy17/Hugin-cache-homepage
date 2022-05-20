@@ -6,7 +6,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
-  <link href="https://raw.githubusercontent.com/TechyGuy17/Hugin-cache-homepage/master/style.css" rel="stylesheet">
+  <link href="https://raw.githack.com/TechyGuy17/Hugin-cache-homepage/master/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -14,7 +14,7 @@
   <h5>Want more? Use the api instead! {{ index_file_url }}</h5>
 
   <script>
-    fetch('https://cache.hugin.chat/api/v1/posts?size=100')
+    fetch('{{ index_file_url }}')
       .then((response) => {
         return response.json()
       })
