@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Written by TechyGuy (TechyGuy#3470 @ discord, techy@novastack.org) for hugin cache, comes with no warranty but no copyright either. The code is free to edit however you want -->
+<!-- Written by TechyGuy (TechyGuy#3470 @ discord, techy@novastack.org) And Coffeboi (Coffeboi#8124) for hugin cache, comes with no warranty but no copyright either. The code is free to edit however you want -->
 <html>
 
 <head>
@@ -14,7 +14,7 @@
   <h5>Want more? Use the api instead! {{ index_file_url }}</h5>
 
   <script>
-    fetch('{{ index_file_url }}')
+    fetch('https://cache.hugin.chat/api/v1/posts?size=50')
       .then((response) => {
         return response.json()
       })
@@ -30,15 +30,32 @@
           if (item.board.startsWith('SEKR') == true) {
             board = item.board.slice(0, 10) + ".....";
           }
+          let reply_tx = item.reply
+          let reply_message = ""
+          let reply_nickname = ""
+
+if (reply_tx != null) {
+    fetch('https://cache.hugin.chat/api/v1/posts/' + reply_tx)
+        .then((response) => {
+            return response.json()        
+        }).then((json) => {
+          reply_message = json.message
+          reply_nickname = json.nickname
+          console.log(reply_nickname,":", reply_message)
+     
+
 
           temp += "<tr>";
           temp += "<td>" + username + "</td>";
-          temp += "<td>" + item.message + "</td>";
+          temp += "<td>" + 'Orignal message: "' +  reply_nickname + ': ' + reply_message + ' "|Response: ' + item.message + "</td>";
           temp += "<td>" + board + "</td>";
           temp += "<td>" + new Date(item.time * 1000) + "</td>";
           document.getElementById('item').innerHTML = temp;
         })
-      })
+      }
+    })
+    }) 
+ 
   </script>
 
   <div class="container">
