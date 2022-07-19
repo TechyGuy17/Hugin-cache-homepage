@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(18, 18, 18);
+    background-color: #121212;
   }
   
   h2 {
@@ -11,7 +11,7 @@ body {
 
   h5 {
     color: #6969;
-    height: 70px;
+    height: 40px;
     font-size: 20px;
     text-align: center;
     font-family: 'Josefin Sans', sans-serif
@@ -35,6 +35,30 @@ body {
   }
 
   .container {
-    width: 1500px;
+    width: 1600px;
     margin: 0 auto;
   }
+
+  .grid {
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .custom-card {
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #171717;
+    border: 1px solid #252525;
+    grid-column: span 6 / span 6;
+    color: #fff!important;
+  }
+
+
+@media screen and (max-width: 768px){
+  .custom-card {
+    grid-column: span 12 / span 12;
+  }
+}
